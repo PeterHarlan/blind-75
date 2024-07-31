@@ -1,0 +1,47 @@
+#!/bin/bash
+
+if [ $# -ne 2 ]; then
+    echo 'need (num. name) and level'
+    exit 1
+fi
+
+ARR=($(echo $1 | tr ". " "\n"))
+NUM="${ARR[0]}"
+NAME="${ARR[@]:1}"
+LEVEL="$2"
+
+NUM_ZERO_PADDED="$(printf '%04d' $NUM)"
+PASCAL_NAME="$(echo $NAME | sed -e 's/\<\(\w\)/\u\0/g; s/ //g')"
+DIR="$NUM_ZERO_PADDED-$PASCAL_NAME"
+URL_NAME="$(echo $NAME | tr '[:upper:]' '[:lower:]' | sed -e 's/ /-/g')"
+
+mkdir $DIR
+# cp ~/leetcode/soln-template.java $DIR/Solution.java
+cp ~/leetcode/soln-template.py $DIR/solution.py
+cp ~/leetcode/write-up-template.md $DIR/README.md
+
+# Populate the URL in README
+sed -i "s/URL_PLACEHOLDER/$URL_NAME/" $DIR/README.md
+
+# Append a row to the table in the top-level README
+NEW="[$NUM. $NAME](https://leetcode.com/problems/$URL_NAME/) | $LEVEL | [Link](https://github.com/david215/lc-blind-curated-75/tree/main/$DIR/)"
+echo $NEW >> README.md
+
+# Inplace sort all the rows in the table by the problem number
+(head -n 6; sort -t '[' -nk2) < README.md 1<> README.md
+
+# Update the counter in the top-level README
+sed -i "3s/.*/### $(ls -l . | grep -c ^d) \/ 75/" README.md
+
+# Copy and rename images
+ARR=($(find ~/Downloads/ -name '*.jpg' | sort))
+for INDEX in ${!ARR[@]}; do
+    mv "${ARR[$INDEX]}" "$DIR/img-$((INDEX + 1)).jpg"
+done
+
+git add -u
+git add $DIR
+git commit -m "$NUM. $NAME"
+
+vim $DIR/solution.py $DIR/README.md
+
