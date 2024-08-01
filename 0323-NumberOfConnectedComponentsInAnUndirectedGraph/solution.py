@@ -2,7 +2,6 @@ from typing import List
 
 
 class Solution:
-
     # Find
     # Union j
     def countComponents(self, node_count: int, edges: List[List[int]]) -> int:
@@ -18,9 +17,13 @@ class Solution:
 
         def find_root_node(node: int) -> int:
             while node != root_node_list[node]:
-                root_node_list[node] = root_node_list[
-                    root_node_list[node]
-                ]  # path compression
+                # path compression: Instead of finding root node, we update the
+                # parent pointer of the nodes along the path to
+                # point directly to the root node.
+                # Reduces the tree height and making the find operation
+                # faster in the future (e.g. eep linked list)
+                # Set the node's parent to the grandparent
+                root_node_list[node] = root_node_list[root_node_list[node]]
                 node = root_node_list[node]
             return node
 

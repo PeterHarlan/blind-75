@@ -1,4 +1,4 @@
-[Problem](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/)
+ [Problem](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/)
 
 ## takeaway
 - Always try to identify / classify the approach you're taking.

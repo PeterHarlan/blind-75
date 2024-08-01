@@ -35,17 +35,14 @@ class Solution:
             if node in old_to_new_node_map:
                 return old_to_new_node_map[node]
 
-            # Clone the node
             copy = Node(node.val)
             old_to_new_node_map[node] = copy
 
-            # Recursively clone all the neighbors
             for neighbor in node.neighbors:
                 copy.neighbors.append(bfs_recursion(neighbor))
 
             return copy
 
-        # Start the DFS cloning process
         return bfs_recursion(node)
 
     # Same structure as bfs
