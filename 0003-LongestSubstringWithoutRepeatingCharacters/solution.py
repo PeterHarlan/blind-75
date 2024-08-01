@@ -1,11 +1,11 @@
 def length_of_longest_substring(string: str) -> int:
     # Goal: Find the length of the longest substring without repeating charaters
-    # 
+    #
 
     # We need to return the count of the longest substring
     # - when there is a repeated character, we need to rest max_char count
     # - therefore, we need to store max_continuous_length
-    # 
+    #
     # Walk through some examples
     # string = "abcabcbb" output is 3 ("abc")
     # string = "bbbbb" output is 1 ("b")
@@ -38,10 +38,8 @@ def length_of_longest_substring(string: str) -> int:
             chart_set.remove(string[start_pointer])
             start_pointer += 1
         chart_set.add(string[end_pointer])
-        max_length = max(max_length, end_pointer- start_pointer + 1)
+        max_length = max(max_length, end_pointer - start_pointer + 1)
     return max_length
-
-
 
 
 if __name__ == "__main__":
@@ -49,4 +47,3 @@ if __name__ == "__main__":
     print(f"length of string {len(input_string)}")
     count = length_of_longest_substring(input_string)
     print(count)
-
