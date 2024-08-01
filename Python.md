@@ -61,11 +61,11 @@ for index, elenum in enumerate(current_list):
 def generate_all_permutations(string: str)
     string_length = len(string)
     for i in range(string_length):
-            for j in range (i+1, string_length+1):
-                substring = ""
-                for k in range(i, j):
-                    substring += string[k]
-                print(substring)
+        for j in range (i+1, string_length+1):
+            substring = ""
+            for k in range(i, j):
+                substring += string[k]
+            print(substring)
 ```
 
 ## Set

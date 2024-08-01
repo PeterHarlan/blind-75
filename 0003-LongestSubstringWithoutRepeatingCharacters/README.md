@@ -5,10 +5,7 @@
 - there can be multiple substrings of the same maximum length
 
 ## thought process
-- naive brute force approach: start with character and continue until meeting a
-  repeating chracter, keeping track of the maximum length, e.g. for "abcabcbb",
-  ("a", len = 1) -> ("ab", len = 2) -> ("abc", len = 3) -> repetition, but
-  remember the maximum length of 3 -> ("b", len = 3) -> ... and so on
+- naive brute force approach: start with character and continue until meeting a repeating chracter, keeping track of the maximum length, e.g. for "abcabcbb", ("a", len = 1) -> ("ab", len = 2) -> ("abc", len = 3) -> repetition, but remember the maximum length of 3 -> ("b", len = 3) -> ... and so on.
     - this approach is O(n^2), as it requires n + (n - 1) + (n - 2)... lookups
 - is there a data structure I can leverage on to reduce to O(n)? O(n log n)?
 - when we encounter "abca", we want to start with "bca", not "b"; if this is

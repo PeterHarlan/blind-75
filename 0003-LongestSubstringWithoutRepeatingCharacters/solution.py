@@ -1,5 +1,5 @@
 def length_of_longest_substring(string: str) -> int:
-    # Find the length of the longest substring without repeating charaters
+    # Goal: Find the length of the longest substring without repeating charaters
     # 
 
     # We need to return the count of the longest substring
@@ -12,7 +12,8 @@ def length_of_longest_substring(string: str) -> int:
     # string = "pwwkew" output is 3 ("wke")
 
     # Potentially generate all permutations of the sub strings O(n^3)
-    # Maybe there is a better way to do this
+    # Maybe there is a better way to do this...
+    # Doing some brainstorming, I think we may be able to use sliding pointers
     # How about pointers? Perhaps we explore the soliding window technique?
     # start_pointer, end_pointer.
     # Maintain a window of characters that expand and contracts as we process the string
