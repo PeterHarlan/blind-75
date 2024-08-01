@@ -3,6 +3,7 @@
 ## Algorithm Classification
 - Graph
 - DFS
+- Medium
 
 ## Takeaways
 - Think about how standard algorithms can be modified and augmented to suit the
