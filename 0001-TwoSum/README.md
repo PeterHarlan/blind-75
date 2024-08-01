@@ -1,5 +1,11 @@
 [Problem](https://leetcode.com/problems/two-sum/)
 
+## Strategy
+- Use a map to keep track of complements to index
+    - complement = target - current_num 
+    - map[complement] = current_index
+- If complement in map, return current index and look up index
+
 ## useful info
 - each input has exactly one solution
     - no multiple solutions
