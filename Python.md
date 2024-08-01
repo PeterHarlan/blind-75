@@ -54,6 +54,17 @@ for i in range(offset, current_list):
 for index, elenum in enumerate(current_list):
 ```
 
+## Strings Slices
+
+```python
+string = "hello world"
+start_pointer = 0
+end_pointer = 1
+
+# This will print only "h". Include everything up to the end_pointer
+substring = string[start_pointer:end_pointer]
+```
+
 ## String Iteration
 
 ```python
@@ -89,3 +100,4 @@ key_list = list(map_obj.keys()) # ["hi"]
 
 ## Common Troubleshoot
 1. Check the scope of the return statement
+
