@@ -1,6 +1,6 @@
 class Solution:
 
-    reverse_list(self, head: ListNode):
+    def reverse_list(self, head: ListNode):
         _reversed = None
         while head:
             tmp = head.next
@@ -18,4 +18,3 @@ class ListNode:
 
 if __name__ == "__main__":
     s = Solution()
-
