@@ -1,6 +1,9 @@
+from typing import List
+
+
 class Solution:
 
-    def two_sum(self, nums: list[int], target: int) -> list[int]:
+    def two_sum(self, nums: List[int], target: int) -> List[int]:
         d = {}
         for i, n in enumerate(nums):
             complement = target - n
