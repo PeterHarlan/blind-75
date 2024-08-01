@@ -38,6 +38,7 @@ class Solution:
             # Even string
             word_list.append(expand_around_center(s, i, i + 1))
             print(word_list)
+        # Key can be a lambda function
         return max(word_list, key=len)
 
 
