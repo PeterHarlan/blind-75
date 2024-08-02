@@ -30,15 +30,15 @@ def length_of_longest_substring(string: str) -> int:
     # substring = cbb
 
     chart_set = set()
-    start_pointer = 0
+    left_pointer = 0
     max_length = 0
 
-    for end_pointer in range(len(string)):
-        while string[end_pointer] in chart_set:
-            chart_set.remove(string[start_pointer])
-            start_pointer += 1
-        chart_set.add(string[end_pointer])
-        max_length = max(max_length, end_pointer - start_pointer + 1)
+    for right_pointer in range(len(string)):
+        while string[right_pointer] in chart_set:
+            chart_set.remove(string[left_pointer])
+            left_pointer += 1
+        chart_set.add(string[right_pointer])
+        max_length = max(max_length, right_pointer - left_pointer + 1)
     return max_length
 
 
