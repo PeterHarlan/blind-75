@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
 
     def search(self, nums: List[int], target: int) -> int:
@@ -23,4 +26,3 @@ class Solution:
 
 if __name__ == "__main__":
     s = Solution()
-

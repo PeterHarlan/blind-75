@@ -108,3 +108,9 @@ my_list = [0] * size
 
 my_list = [i for i in range(10)]
 ```
+### MISC
+
+```python
+# Floor division used for int
+(num_1 + num_2) // 2 
+```
