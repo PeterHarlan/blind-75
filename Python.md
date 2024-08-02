@@ -101,3 +101,10 @@ key_list = list(map_obj.keys()) # ["hi"]
 ## Common Troubleshoot
 1. Check the scope of the return statement
 
+### Array
+
+```python
+my_list = [0] * size
+
+my_list = [i for i in range(10)]
+```
