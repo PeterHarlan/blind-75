@@ -33,7 +33,7 @@ def binary_search(array: List[int], target: int):
 
 # Example usage:
 sorted_array = [1, 3, 5, 7, 9, 11, 13, 15]
-target = 7
+target = 15
 
 index = binary_search(sorted_array, target)
 if index != -1:

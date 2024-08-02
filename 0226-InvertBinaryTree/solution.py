@@ -1,9 +1,16 @@
 from __future__ import annotations
 
 
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
 class Solution:
 
-    invert_tree(self, root: TreeNode) -> TreeNode:
+    def invert_tree(self, root: TreeNode | None) -> TreeNode:
         if not root:
             return None
         else:
@@ -12,13 +19,5 @@ class Solution:
             return TreeNode(root.val, left, right)
 
 
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-
-
 if __name__ == "__main__":
     s = Solution()
-
