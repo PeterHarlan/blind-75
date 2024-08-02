@@ -16,23 +16,26 @@
 
 class Solution:
 
-    def longest_palindrome(self, s: str) -> str:
-        def expand_around_center(string: str, start_index: int, end_index: int) -> str:
-            start_pointer, end_pointer = start_index, start_index
+    def longest_palindrome2(self, s: str) -> str:
+        def expand_around_center(string: str, left_index: int, right_index: int) -> str:
+            # Pointers used to keep track of the longest substring
+            left_pointer, right_pointer = left_index, left_index
             # Start index is greater than 0
             # End index is not at the end of the string
             # Left and right character must match
             while (
-                start_index >= 0
-                and end_index < len(string)
-                and string[start_index] == string[end_index]
+                left_index >= 0
+                and right_index < len(string)
+                and string[left_index] == string[right_index]
             ):
-                if end_index - start_index > end_pointer - start_pointer:
-                    start_pointer, end_pointer = start_index, end_index
-                start_index -= 1
-                end_index += 1
+                # When the length the new substring is longer than the stored substring
+                # update the stored substring pointers
+                if right_index - left_index > right_pointer - left_pointer:
+                    left_pointer, right_pointer = left_index, right_index
+                left_index -= 1
+                right_index += 1
             # Compose the substring (+1 so that we include char at index)
-            return string[start_pointer : end_pointer + 1]
+            return string[left_pointer : right_pointer + 1]
 
         word_list = []
         length = len(s)
