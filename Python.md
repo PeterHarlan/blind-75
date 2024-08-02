@@ -113,4 +113,7 @@ my_list = [i for i in range(10)]
 ```python
 # Floor division used for int
 (num_1 + num_2) // 2 
+
+# Shallow copy
+shallow_copy = nums[:]
 ```
