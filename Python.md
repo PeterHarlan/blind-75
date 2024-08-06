@@ -104,9 +104,13 @@ key_list = list(map_obj.keys()) # ["hi"]
 ### Array
 
 ```python
+# Init array with filler of size
 my_list = [0] * size
 
 my_list = [i for i in range(10)]
+
+# Traverse backwards, used in prefix and postfix solutions
+for i in range(len(array)-1, -1, -1):
 ```
 ### MISC
 
