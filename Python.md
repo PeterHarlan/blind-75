@@ -98,7 +98,11 @@ print(map_obj.keys()) # Returns dict_keys["hi"]
 key_list = list(map_obj.keys()) # ["hi"]
 
 # A map of arrays
-map = { i: [] for i in range(array) }
+my_dict = { i: [] for i in range(array) }
+
+# Iterate through keys and values
+for key, value in my_dict.items():
+    print(key, value)
 ```
 
 ## Common Troubleshoot

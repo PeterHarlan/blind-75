@@ -1,28 +1,65 @@
+from typing import List, Set
+
+
 class Solution:
 
-    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        def dfs(v: int, curr_visited: set[int]) -> bool:
-            if v in curr_visited:  # cycle encountered
+    # Generate a map of course numbers to array of preq {0: [1, 2], 1:[2]}
+    # DFS, if preq, return true, else, explore neighbors
+    # 1. cycles
+    # 2. disconnected
+
+    # Exploring neighbors
+    # if cycle, return false
+    # else, dfs
+    # O(e+v)
+    def solution(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        coursePreMap = {i: [] for i in range(numCourses)}
+        for course, preq in prerequisites:
+            coursePreMap[course].append(preq)
+
+        # Edge Cases (cycles and disconnected)
+        # 1. Cycles = Set
+        # add to set
+        # remove from set
+        visited_set = set()
+
+        # 2. Disconnected Graph. Use DFs to iterate through all the course
+        # If the pre list is empty, return True,
+        # otherwise, return False.
+        def dfs(course):
+            # 1. base case
+            # 2. for all neighbors
+
+            if course in visited_set:
                 return False
-            elif v in g_visited:  # already visited; skip
+
+            # 1. There are no more courese left - base case
+            if coursePreMap[course] == []:
                 return True
-            else:  # recurse
-                curr_visited.add(v)
-                res = v not in g or all([dfs(n, curr_visited) for n in g[v]])
-                curr_visited.remove(v)
-                g_visited.add(v)
-                return res
 
-        # initialize graph as adjacency list
-        g = defaultdict(list)
-        for e in prerequisites:
-            dst, src = e
-            g[src].append(dst)
+            # Cycles
+            visited_set.add(course)
+            # 2. For all the neighbors
+            for pre in coursePreMap[course]:
+                if not dfs(pre):
+                    return False
+            visited_set.remove(course)
+            # Remove all elements rather than pop them 1-by-1
+            coursePreMap[course] = []
 
-        g_visited = set()  # global visited set
-        return all(dfs(v, set()) for v in g.keys())
+            return True
+
+        for course in range(numCourse):
+            if not dfs(course):
+                return False
+        return True
+
+        # Disconnected = iterate through all course
 
 
 if __name__ == "__main__":
+    prerequisites = [[1, 0], [0, 1]]
+    numCourse = 2
     s = Solution()
-
+    solution = s.solution(numCourse, prerequisites)
+    print(solution)

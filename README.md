@@ -1,6 +1,9 @@
-## LeetCode Blind Curated 75
+# LeetCode Blind Curated 75
 
-### 59 / 75
+## Reading Material
+* [Arrays](https://medium.com/@ulucozdenvar/ace-your-coding-interview-blind-75-solved-and-explained-part-1-arrays-4692c04891e0)
+
+## 59 / 75
 
 **Problem** | **Difficulty** | **Solution + Write-up**
 -- | :-: | :-:
