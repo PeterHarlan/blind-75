@@ -30,31 +30,30 @@ class Solution:
             # 1. base case
             # 2. for all neighbors
 
+            # Base case, return when there is a cycle
             if course in visited_set:
                 return False
 
-            # 1. There are no more courese left - base case
+            # Optimize: There are no more courese left - base case
             if coursePreMap[course] == []:
                 return True
 
             # Cycles
             visited_set.add(course)
-            # 2. For all the neighbors
+            # For all the neighbors
             for pre in coursePreMap[course]:
                 if not dfs(pre):
                     return False
             visited_set.remove(course)
             # Remove all elements rather than pop them 1-by-1
             coursePreMap[course] = []
-
             return True
 
+        # Disconnected = iterate through all course
         for course in range(numCourse):
             if not dfs(course):
                 return False
         return True
-
-        # Disconnected = iterate through all course
 
 
 if __name__ == "__main__":
