@@ -2,7 +2,7 @@ from typing import List
 
 
 class Solution:
-    # Max sub arrjay for loop
+    # Max sub array, consider using prefix and postfix
     def maxSubArray(self, nums: List[int]) -> int:
         if not nums:
             return 0

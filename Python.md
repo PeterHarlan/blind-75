@@ -96,6 +96,9 @@ print(map_obj.keys()) # Returns dict_keys["hi"]
 
 # Convert Keys to list of keys
 key_list = list(map_obj.keys()) # ["hi"]
+
+# A map of arrays
+map = { i: [] for i in range(array) }
 ```
 
 ## Common Troubleshoot
@@ -111,6 +114,9 @@ my_list = [i for i in range(10)]
 
 # Traverse backwards, used in prefix and postfix solutions
 for i in range(len(array)-1, -1, -1):
+
+# Find max value, find the max element in array
+max(array)
 ```
 ### MISC
 
