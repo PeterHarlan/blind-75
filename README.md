@@ -1,6 +1,7 @@
 # LeetCode Blind Curated 75
 
 ## Reading Material
+* [Overview](https://www.educative.io/blog/leetcode-blind-75-patterns)
 * [Arrays](https://medium.com/@ulucozdenvar/ace-your-coding-interview-blind-75-solved-and-explained-part-1-arrays-4692c04891e0)
 * [Graphs](https://www.cs.princeton.edu/~wayne/kleinberg-tardos/pdf/03Graphs.pdf)
 
