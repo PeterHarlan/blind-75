@@ -1,19 +1,59 @@
-from typing import List, Set
+from typing import List
 
 
 class Solution:
+    # Goal of this problem is to understand
+    # dfs(), cycles, disconnected graphs, and adjacency.
 
-    # Generate a map of course numbers to array of preq {0: [1, 2], 1:[2]}
-    # DFS, if preq, return true, else, explore neighbors
-    # 1. cycles
-    # 2. disconnected
+    # [[1,0]]
+    # course 1 -> 0 == true
+    # [[1,0],[0,1]]
+    # course 1 -> 0 and 0 -> 1 == false
 
-    # Exploring neighbors
-    # if cycle, return false
-    # else, dfs
-    # O(e+v)
+    # Clearifying questions
+    # Does num course increment with course ids, starting with 0? --> yes
+
+    # From the example, we see a cycle, that reminds me of two edge cases with graphs
+    # 1. cycles => need hashset to check if current is visited => return False
+    # 2. disconnected graphs => do it for each node, perhaps dfs()???, lets brainstorm some more
+
+    # What if we created an adjacency map such that course id is mapped to an array of preqs?
+    # Such that a map of course numbers to array of preq {0: [1, 2], 1:[2]}
+
+    # Outline of the algorithm
+    # create adjacency map
+    # key = course id and value is array of preq
+
+    # dfs
+    #   base case
+    #       if already in cycle, return False
+    #       if no dependencies, return True
+    #
+    #   cycle_set.add(node)
+    #   check neighbors
+    #   for preq in map[course]:
+    #       if(not dfs(preq)):
+    #           return False
+    #   cycle_set.remove(node)
+    #   map[course] = []
+    #   return True
+    #
+    # disconnected graph
+    # for course in range(numCourses):
+    #   if(not dfs(course)):
+    #       return False
+    # return True
+
+    # Run sanity check
+    # cycles - yes
+    # disconnected - yes
+    # Runtime O(e+v)
+
     def solution(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        # Init adjacency list
+        # 1). Key[course_id] = []
         coursePreMap = {i: [] for i in range(numCourses)}
+        # 2). Fill list with preq through appending
         for course, preq in prerequisites:
             coursePreMap[course].append(preq)
 
