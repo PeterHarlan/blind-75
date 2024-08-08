@@ -38,6 +38,16 @@ def length_of_longest_substring(string: str):
     return max_length
 ```
 
+## Queues
+
+```python
+# Queues in python are double ended
+# You can use them as stacks using pop
+# As queues
+queue = collection.dequeue()
+first = queue.popleft()
+```
+
 ## Iterating through loops
 
 ```python
@@ -85,6 +95,9 @@ def generate_all_permutations(string: str)
 # Turn string into a set
 string = "pwke"
 print(set(look_up)) # Outputs {'p', 'w', 'k', 'e'}
+
+# Set comprehension
+set = {i for i in range(10)}
 ```
 
 ## Map
@@ -103,6 +116,8 @@ my_dict = { i: [] for i in range(array) }
 # Iterate through keys and values
 for key, value in my_dict.items():
     print(key, value)
+map.items()
+key, value = map.values()
 ```
 
 ## Common Troubleshoot
@@ -114,6 +129,7 @@ for key, value in my_dict.items():
 # Init array with filler of size
 my_list = [0] * size
 
+# List comprehension
 my_list = [i for i in range(10)]
 
 # Traverse backwards, used in prefix and postfix solutions
@@ -121,6 +137,13 @@ for i in range(len(array)-1, -1, -1):
 
 # Find max value, find the max element in array
 max(array)
+
+# Array Sorting
+array.sort()
+array.sort(reverse=True)
+array.sort(key=lambda x: len(x))
+# or
+array.sort(key=len)
 ```
 ### MISC
 
@@ -130,4 +153,19 @@ max(array)
 
 # Shallow copy
 shallow_copy = nums[:]
+
+# If statement does not require "()"
+if array == []:
+
+# Strings are immutable
+# Does not work
+string = "abc"
+string[1] = "x"
+
+# Get ASCII value of char in string
+ascii = ord("s")
+
+string_list = ["a", "b", "c"]
+"".join(string_list)
+
 ```
