@@ -1,3 +1,6 @@
+# Lesson learned here is to start from the center
+# using two pointers and expand in both the left and right direction
+
 # Find the longest panlindromic substring
 # What the heck is a panlindromic substring?
 # - a substring that is the same forwards as it is backwards
@@ -8,10 +11,27 @@
 # - What if there is no string? - return ""
 
 # Brute force solution
-# Check every permutaiton of the the string, and that is O(n^3)
+# Check every permutation of the the string, and that is O(n^3)
+# use a set to see if the string exists, otherwise increment count
 
+# Every palindrome has a center point. For example, in "racecar", the center is the letter "e".
 # What if we try a strategy where we expand from the middle to the left or the right?
-# edge case here is string of odd length
+# edge case here is either odd or even length
+
+# Expand function
+# Start at a center point and look outwards.
+# Check if the characters on the left and right of the center are the same. If they are, you’ve found a palindrome.
+# Keep moving outwards (one character to the left and one character to the right) and check again if they match.
+# Repeat this until the characters on either side don’t match or you run out of characters.
+# If you find a longer palindrome while expanding from a different center, update your record of the longest one.
+# By checking every possible center, you ensure you don’t miss any palindromes.
+#
+# We need to compute possible centers for both the following cases
+# 1. even length string
+# 2. odd length string
+# Once you’ve checked all the centers, the longest palindrome you’ve recorded is the answer.
+# i.e. run for loop and find the palendrom with the longest length
+# Runtime is O(n^2)
 
 
 class Solution:
@@ -35,6 +55,7 @@ class Solution:
                 left_index -= 1
                 right_index += 1
             # Compose the substring (+1 so that we include char at index)
+            # A for loop used to join the string
             return string[left_pointer : right_pointer + 1]
 
         word_list = []
