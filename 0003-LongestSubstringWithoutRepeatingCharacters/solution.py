@@ -1,6 +1,11 @@
 def length_of_longest_substring_solution(string: str) -> int:
     # Goal: Find the length of the longest substring without repeating charaters
 
+    # Learning Outcome: Figure out how to use two pointers
+    # Using right pointer as explortory
+    # When char in hashset data structure already exists, increment left pointer
+    # Basically, understand when to move the left and right pointers
+
     # We need to return the count of the longest substring
     # - when there is a repeated character, we need to rest max_char count
     # - therefore, we need to store max_continuous_length
