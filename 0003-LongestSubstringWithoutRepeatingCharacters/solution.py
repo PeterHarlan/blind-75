@@ -1,6 +1,5 @@
 def length_of_longest_substring(string: str) -> int:
     # Goal: Find the length of the longest substring without repeating charaters
-    #
 
     # We need to return the count of the longest substring
     # - when there is a repeated character, we need to rest max_char count
@@ -20,6 +19,16 @@ def length_of_longest_substring(string: str) -> int:
     # Need a way to track unique characters, we can use a set (ensures all chars in set is unique)
     # Move end_pointer to explore new characters
     # If duplicate character is found, reset duplicate and bump up start_pointer. Continue from left until duplicate is removed
+
+    # Two loops for sliding pointer
+    # 1. outer loop for the right pointer (exploritory)
+    # 2. inner loop for the left pointer (e.g. while loop)
+    # while there is a repeat char at left pointer
+    #   remove char at left pointer when shifting left pointer
+    #   increment left pointer
+    # charset add right pointer
+    # calculate and update max size.
+    # note calculation of size with an array causes u to add +1 to len
 
     # Brainstorm
     # 1 2 3 4 5 6 7 8
