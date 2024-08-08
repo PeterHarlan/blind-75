@@ -1,4 +1,4 @@
-def length_of_longest_substring(string: str) -> int:
+def length_of_longest_substring_solution(string: str) -> int:
     # Goal: Find the length of the longest substring without repeating charaters
 
     # We need to return the count of the longest substring
@@ -51,8 +51,15 @@ def length_of_longest_substring(string: str) -> int:
     return max_length
 
 
+def length_of_longest_substring(string: str) -> int:
+    # Practice solution here
+    pass
+
+
 if __name__ == "__main__":
-    input_string = "bbbbb"
+    # input_string = "bbbbb"
+    input_string = "abcabcbb"  # abc, expected out is 3
     print(f"length of string {len(input_string)}")
+    # count = length_of_longest_substring_solution(input_string)
     count = length_of_longest_substring(input_string)
     print(count)
