@@ -87,7 +87,9 @@ def is_palindrome(s):
 
 # 4. Dutch National Flag Problem: 3-Way Partitioning
 # **Problem**: Given an array of 0s, 1s, and 2s, sort the array.
-# Lesson: Using pointers as partitioning
+# Lesson: Using pointers as partitioning. Note the while loop use of mid pointer.
+# Walking three pointers, low and mid in a positive direction and high in a
+# negative direction.
 
 
 def test_sort_colors():
@@ -119,7 +121,7 @@ def sort_colors(nums):
 
 # 5. Sliding Window: Maximum Sum of a Subarray of Length K
 # **Problem**: Find the maximum sum of a subarray of length `k`.
-# Lesson: A sliding window algorithm to find sum between pointers.
+# Lesson: A sliding window algorithm with the use of index and offset.
 
 
 def test_max_sum_subarray():
