@@ -65,6 +65,7 @@ def binary_search(arr, target):
 
 def test_is_palindrome():
     s = "racecar"
+    s = "ww"
     out = is_palindrome(s)
     print(out)
     if not out:
@@ -187,10 +188,10 @@ def merge_intervals(intervals):
 def main():
     # test_pair_with_sum()
     # test_binary_search()
-    # test_is_palindrome()
+    test_is_palindrome()
     # test_sort_colors()
     # test_max_sum_subarray()
-    test_merge_intervals()
+    # test_merge_intervals()
 
 
 if __name__ == "__main__":
