@@ -1,3 +1,5 @@
+# Fastforward the right pointer so that it has the same distance
+# When the right pointer.next is null, return right pointer
 class Solution:
 
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
@@ -18,4 +20,3 @@ class Solution:
 
 if __name__ == "__main__":
     s = Solution()
-
