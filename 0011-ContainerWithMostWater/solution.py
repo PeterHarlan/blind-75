@@ -33,7 +33,10 @@ class Solution:
     #   - When the value at left_pointer < value at right_pointer, increment left_pointer
     #   - else, decrement right_pointer
 
-    def maxArea(self, height: List[int]) -> int:
+    # Common Edge cases
+    # Calculate min height rather than max height
+    # Advance the pointer when it has a lesser height
+    def maxAreaSolution(self, height: List[int]) -> int:
 
         max_area = 0
         left_pointer, right_pointer = 0, len(height) - 1
@@ -53,6 +56,7 @@ class Solution:
 if __name__ == "__main__":
     s = Solution()
     height_list = [1, 8, 6, 2, 5, 4, 8, 3, 7]
+    max_area = s.maxAreaSolution(height_list)
     max_area = s.maxArea(height_list)
     # max_area = s.brute_force(height_list)
     print(max_area)
