@@ -40,7 +40,7 @@ class Solution:
     def longest_palindrome2(self, s: str) -> str:
         def expand_around_center(string: str, left_index: int, right_index: int) -> str:
             # Pointers used to keep track of the longest substring
-            left_pointer, right_pointer = left_index, left_index
+            left_substring_pointer, right_substring_pointer = left_index, left_index
             # Start index is greater than 0
             # End index is not at the end of the string
             # Left and right character must match
@@ -49,15 +49,21 @@ class Solution:
                 and right_index < len(string)
                 and string[left_index] == string[right_index]
             ):
-                # When the length the new substring is longer than the stored substring
-                # update the stored substring pointers
-                if right_index - left_index > right_pointer - left_pointer:
-                    left_pointer, right_pointer = left_index, right_index
+                # When the visited substring is longer than the current substring,
+                # update the current substring to be the visited substring
+                if (
+                    right_index - left_index
+                    > right_substring_pointer - left_substring_pointer
+                ):
+                    left_substring_pointer, right_substring_pointer = (
+                        left_index,
+                        right_index,
+                    )
                 left_index -= 1
                 right_index += 1
             # Compose the substring (+1 so that we include char at index)
             # A for loop used to join the string
-            return string[left_pointer : right_pointer + 1]
+            return string[left_substring_pointer : right_substring_pointer + 1]
 
         word_list = []
         length = len(s)

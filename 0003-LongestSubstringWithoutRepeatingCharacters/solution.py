@@ -57,8 +57,20 @@ def length_of_longest_substring_solution(string: str) -> int:
 
 
 def length_of_longest_substring(string: str) -> int:
-    # Practice solution here
-    pass
+    # abcabcbb
+    left = 0
+    visited_set = set()
+    max_length = 0
+
+    for right in range(len(string)):
+        while string[right] in visited_set:
+            visited_set.remove(string[left])
+            left += 1
+        else:
+            length = right - left
+            max_length = max(max_length, length)
+            visited_set.add(string[left])
+    return max_length
 
 
 if __name__ == "__main__":
