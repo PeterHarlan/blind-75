@@ -30,6 +30,10 @@ def print_linked_list(node: Optional[ListNode]):
     print("None")
 
 
+# Use three pointers, prev, current, and next.
+# Advance next node (allows us to move current to next in the later step)
+# Update the relationship of current node
+# Update current
 class Solution:
 
     def reverse_list(self, head: ListNode):

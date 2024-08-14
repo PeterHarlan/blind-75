@@ -37,7 +37,7 @@
 
 class Solution:
 
-    def longest_palindrome2(self, s: str) -> str:
+    def longest_palindrome(self, s: str) -> str:
         def expand_around_center(string: str, left_index: int, right_index: int) -> str:
             # Pointers used to keep track of the longest substring
             left_substring_pointer, right_substring_pointer = left_index, left_index
@@ -73,7 +73,7 @@ class Solution:
             word_list.append(expand_around_center(s, i, i))
             # Even string
             word_list.append(expand_around_center(s, i, i + 1))
-            print(word_list)
+        print(word_list)
         # Key can be a lambda function
         return max(word_list, key=len)
 
