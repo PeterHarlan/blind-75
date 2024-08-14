@@ -19,11 +19,11 @@ def length_of_longest_substring_solution(string: str) -> int:
     # Maybe there is a better way to do this...
     # Doing some brainstorming, I think we may be able to use sliding pointers
     # How about pointers? Perhaps we explore the soliding window technique?
-    # start_pointer, end_pointer.
+    # left_pointer, right_pointer.
     # Maintain a window of characters that expand and contracts as we process the string
     # Need a way to track unique characters, we can use a set (ensures all chars in set is unique)
-    # Move end_pointer to explore new characters
-    # If duplicate character is found, reset duplicate and bump up start_pointer. Continue from left until duplicate is removed
+    # Move right_pointer to explore new characters
+    # If duplicate character is found, reset duplicate and bump up left_pointer. Continue from left until duplicate is removed
 
     # Two loops for sliding pointer
     # 1. outer loop for the right pointer (exploritory)
@@ -66,10 +66,9 @@ def length_of_longest_substring(string: str) -> int:
         while string[right] in visited_set:
             visited_set.remove(string[left])
             left += 1
-        else:
-            length = right - left
-            max_length = max(max_length, length)
-            visited_set.add(string[left])
+        length = right - left
+        max_length = max(max_length, length)
+        visited_set.add(string[left])
     return max_length
 
 
