@@ -51,7 +51,6 @@ def finding_connected_components(matrix: List[List[int]]):
         while queue:
             # Note: Stack.pop() or Stack.leftpop()
             origin_r, origin_c = queue.pop()
-            visited.add((origin_r, origin_c))
 
             for offset_r, offset_c in neighbor_list:
                 row, column = origin_r + offset_r, origin_c + offset_c
@@ -149,9 +148,9 @@ def bfs_shortest_path(graph: Dict[int, List[int]], start: int, end: int):
 
 
 def main():
-    # test_finding_connected_components()
+    test_finding_connected_components()
     # test_find_all_paths()
-    test_bfs_shortest_path()
+    # test_bfs_shortest_path()
 
 
 if __name__ == "__main__":
